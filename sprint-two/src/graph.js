@@ -2,14 +2,24 @@
 
 // Instantiate a new graph
 var Graph = function() {
+  this.storage = {};
 };
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
+  // Add node to storage
+  this.storage[node] = [];
 };
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
+  // Iterate over storage
+  for (var keys in this.storage) {
+    if (keys === node.toString()) {
+      return true;
+    }
+  }
+  return false;
 };
 
 // Removes a node from the graph.
@@ -36,4 +46,7 @@ Graph.prototype.forEachNode = function(cb) {
  * Complexity: What is the time complexity of the above functions?
  */
 
-
+// var test = new Graph();
+// test.addNode(1);
+// console.log(test);
+// console.log(test.contains([]));
