@@ -7,12 +7,13 @@ var LinkedList = function() {
     if (list.head === null) {
       list.head = Node(value);
     }
-    var temp = list.head;
-    while (temp.next !== null) {
-      temp = temp.next;
+    var currentNode = list.head;
+    while (currentNode.next !== null) {
+      currentNode = currentNode.next;
     }
-    temp.next = Node(value);
-    list.tail = temp.next;
+    currentNode.next = Node(value);
+
+    list.tail = currentNode.next;
   };
 
   list.removeHead = function() {
